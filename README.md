@@ -1,1 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/HTz23s4q)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+Mini Design Doc Google Link:
+https://docs.google.com/document/d/1IZnw866dehdX5t7R8pOUAYAeDwmmeKpZ6KkSMD2sd3U/edit?usp=sharing
