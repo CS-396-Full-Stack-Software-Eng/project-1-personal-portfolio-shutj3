@@ -1,0 +1,16 @@
+
+import Hero from "./components/Hero";
+
+
+export default async function Home() {
+  return ( 
+    <layout className="flex min-h-screen flex-col">
+        <div className="flex h-screen items-center px-42 py-4">
+         
+          <Hero />
+        
+            
+        </div>
+    </layout>
+  );
+};
