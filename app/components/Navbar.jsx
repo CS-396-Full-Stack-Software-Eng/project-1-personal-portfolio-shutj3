@@ -5,7 +5,9 @@ import NavLink from "./NavLink";
 import {HomeIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MobileMenu from "./MobileMenu";
 import { useRouter } from 'next/navigation';
-import Theme from "./Theme";
+
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
 
 
 const navLinks = [
@@ -25,16 +27,18 @@ const Navbar = () => {
     const [openNavbar, setOpenNavbar] = useState(false);
     const router = useRouter()
 
+    const {theme} = useTheme();
     return (
-        <nav className="fixed top-0 left-0 right-0 z-10 bg-indigo-200 bg-opacity-95">
+        
+        <nav className={`fixed top-0 left-0 right-0 z-10 bg-indigo-200 bg-opacity-95 ${
+            theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'
+          }`}>
             <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-3">
                 <Link href={"/"}>
                     <HomeIcon className="h-6 w-6 hover:stroke-indigo-400" />
                 </Link>
-                
-                <Theme />
-               
-            
+
+                <ThemeToggle />
                 <div className="mobile-menu block md:hidden">
                     {!openNavbar ? (
                         <button

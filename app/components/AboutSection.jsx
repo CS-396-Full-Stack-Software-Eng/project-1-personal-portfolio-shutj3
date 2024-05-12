@@ -3,6 +3,8 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+import { useTheme } from "../context/ThemeContext";
+
 const TAB_DATA = [
   {
     title: "Skills",
@@ -36,6 +38,8 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
+  const {theme} = useTheme();
+
   const handleTabChange = (id) => {
     startTransition(() => {
       setTab(id);
@@ -43,7 +47,9 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-indigo-400" id="about">
+    <section className={`text-indigo-400 ${
+      theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'
+    } py-20`} id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image src="/images/about.png" width={500} height={500} />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">

@@ -2,12 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import { useTheme } from "../context/ThemeContext";
 
 
 const Hero = () => {
+    const {theme} = useTheme();
   return(
-    <section className="lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section className={`lg:py-16 ${
+        theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'
+      } min-h-screen` }>
+        <div className="grid grid-cols-1 sm:grid-cols-12 py-40 px-40">
             <div className="col-span-7 place-self-center text-center sm:text-left">
                 <h1 className="text-indigo-400 mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold font-['ui-serif']">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500"> 
@@ -43,6 +47,7 @@ const Hero = () => {
                         <a href="https://docs.google.com/document/d/1PadpXaq5PzOKBYed9cCEVA9UneU_Nxz60dAN1yFhIzk/edit?usp=sharing" className="block bg-indigo-300 rounded-full px-5 py-2 hover:bg-blue-200 ">Download Resume
                         </a> 
                     </button>
+                    
                 </div>
             </div>
             <div className="col-span-4 place-self-center mt-4 lg:mt-0 py-5">
@@ -55,7 +60,9 @@ const Hero = () => {
                         height={300}
                     />
                 </div>
+                
             </div>
+            
         </div>
     </section>
 

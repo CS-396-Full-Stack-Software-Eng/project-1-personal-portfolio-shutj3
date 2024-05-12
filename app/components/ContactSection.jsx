@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const ContactSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-
+  const {theme} = useTheme();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -34,7 +35,9 @@ const ContactSection = () => {
   return (
       <section
         id="contact"
-        className="flex h-screen items-center justify-center">
+        className={`flex h-screen items-center justify-center ${
+          theme === 'dark' ? 'bg-dark text-white' : 'bg-light text-black'
+        }`}>
         <div>
           {emailSubmitted ? (
             <p className="text-pink-400 text-md mt-2">
